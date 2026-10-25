@@ -151,19 +151,22 @@ p, li {
 }
 
 .cabecalho-interno {
+  position: relative;
   max-width: var(--largura-max);
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
 }
 
 .marca {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+  max-width: calc(100% - 96px);
 }
 
 .marca h1 {
@@ -191,6 +194,9 @@ p, li {
 
 /* Botão de alternância de tema (claro/escuro) */
 .botao-tema {
+  position: absolute;
+  top: 0;
+  right: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -222,6 +228,7 @@ html[data-tema="escuro"] .icone-tema-lua { display: none; }
 .navegacao {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
 }
 
@@ -421,16 +428,16 @@ select {
   .abas { display: flex; }
 
   /* ---------------- Cabeçalho compacto no celular -------------------- */
-  /* Linha 1: marca + botão de tema. Linha 2: menu que desliza na horizontal. */
+  /* Marca centralizada na linha 1 (botão de tema fixo à direita) e menu que
+     desliza na horizontal na linha 2. */
   body { font-size: 16px; }
 
   .cabecalho { padding: 10px var(--espaco); }
 
-  .cabecalho-interno { gap: 8px 10px; }
+  .cabecalho-interno { gap: 8px; }
 
   .marca {
-    flex: 1 1 0;
-    min-width: 0;
+    width: 100%;
     gap: 10px;
   }
 
@@ -445,12 +452,11 @@ select {
 
   .marca-icone { width: 40px; height: 40px; }
 
-  .botao-tema { order: 2; }
-
   .navegacao {
-    order: 3;
-    flex: 1 0 100%;
+    width: 100%;
     flex-wrap: nowrap;
+    justify-content: center;
+    justify-content: safe center;
     overflow-x: auto;
     overscroll-behavior-x: contain;
     gap: 6px;
