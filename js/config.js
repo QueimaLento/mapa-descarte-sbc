@@ -40,10 +40,10 @@ const CONFIG = {
   CURSO: "Ciência da Computação",
 
   // Endereço público do site (usado no cartaz e no QR Code).
-  URL_SITE: "[https://SEUUSUARIO.github.io/mapa-descarte-sbc/]",
+  URL_SITE: "https://queimalento.github.io/mapa-descarte-sbc/",
 
   // Link do repositório público no GitHub.
-  URL_REPOSITORIO: "[URL DO REPOSITÓRIO NO GITHUB]"
+  URL_REPOSITORIO: "https://github.com/QueimaLento/mapa-descarte-sbc"
 };
 
 /**
