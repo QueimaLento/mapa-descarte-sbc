@@ -34,6 +34,32 @@ function gerarSlug(texto) {
 }
 
 /**
+ * Normaliza um texto SEM alterar o tamanho da string: cada caractere vira
+ * outro caractere de mesma posição (ou um espaço). Assim a posição de um
+ * trecho no texto normalizado bate com a posição no texto original,
+ * permitindo destacar o que o usuário digitou.
+ * Ex.: "UBS Orquídeas" -> "ubs orquideas" (mesmos 14 caracteres).
+ * @param {string} texto Texto de entrada.
+ * @returns {string} Texto normalizado com o mesmo tamanho do original.
+ */
+function normalizarTextoMantendoTamanho(texto) {
+  const original = texto === null || texto === undefined ? "" : String(texto);
+  let saida = "";
+  for (let i = 0; i < original.length; i++) {
+    const caractere = original[i];
+    let simples = caractere;
+    try {
+      simples = caractere.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    } catch (erro) {
+      simples = caractere;
+    }
+    simples = simples.toLowerCase();
+    saida += simples.length === 1 ? simples : " ";
+  }
+  return saida;
+}
+
+/**
  * Distância em linha reta entre dois pontos, em metros (fórmula de Haversine).
  * Usada só para ordenar a lista quando o usuário autoriza a localização.
  * @param {number} lat1 Latitude do ponto 1.

@@ -73,9 +73,9 @@
     <section class="cartao" aria-labelledby="t-objetivo">
       <h3 id="t-objetivo">Objetivo</h3>
       <p>
-        Ajudar a população a encontrar rapidamente onde entregar medicamentos vencidos
-        ou não utilizados e filmes de exames de imagem, evitando que esses resíduos
-        terminem no esgoto, no rio ou no lixo comum.
+        O projeto ajuda a população a encontrar rapidamente onde entregar medicamentos
+        vencidos ou não utilizados e filmes de exames de imagem, evitando que esses
+        resíduos terminem no esgoto, no rio ou no lixo comum.
       </p>
     </section>
 
@@ -83,13 +83,14 @@
       <h3 id="t-status">Situação dos dados</h3>
       <p>
         Os pontos vêm da <strong>lista de UBS disponibilizada pelo site
-        saobernardodocampo.info (fonte terceira)</strong> e da regra de que todas as
+        saobernardodocampo.info (fonte externa)</strong> e da regra de que todas as
         unidades básicas de saúde recebem medicamentos, conforme notícias do
         <strong>Repórter Diário (30/09/2024 e 11/07/2025)</strong>.
       </p>
       <ul class="lista-simples">
         <li><strong>Nenhuma informação foi confirmada diretamente com as unidades</strong> — os dados vêm de fontes públicas e precisam ser conferidos por telefone.</li>
-        <li>Endereços incompletos, bairros, horários, telefones e coordenadas ainda não foram preenchidos; eles são editados manualmente em <code>dados/pontos.json</code>.</li>
+        <li>Endereços, bairros, horários e telefones podem estar incompletos ou
+          desatualizados; são editados manualmente em <code>dados/pontos.json</code>.</li>
         <li>Quando uma informação for confirmada, o campo <code>status</code> vira <code>confirmado</code> e <code>confirmado_em</code> recebe a data.</li>
         <li>Exames de imagem ainda não constam na base: se você souber de um ponto, envie uma sugestão.</li>
       </ul>
@@ -114,10 +115,11 @@
       <h3 id="t-acessibilidade">Acessibilidade</h3>
       <ul class="lista-simples">
         <li>Contraste de texto ajustado ao padrão WCAG AA nos dois temas.</li>
-        <li>Mapa e lista são alternativas um do outro; o site funciona lendo apenas a lista.</li>
+        <li>Mapa e lista são alternativas um ao outro; o site funciona lendo apenas a lista.</li>
         <li>Alvos de toque de pelo menos 44×44 px e textos redimensionáveis.</li>
-        <li>Mudanças de resultado são anunciadas a leitores de tela.</li>
-        <li>Sem JavaScript, a mensagem de aviso explica como consultar os endereços.</li>
+        <li>Mudanças de resultado são anunciadas para leitores de tela.</li>
+        <li>Sem JavaScript, um aviso na página do mapa leva ao arquivo
+          <code>dados/pontos.csv</code>, com todos os endereços.</li>
       </ul>
       <p class="nota">
         Encontrou uma barreira de acesso? Abra uma issue no repositório ou envie

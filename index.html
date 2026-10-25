@@ -75,16 +75,19 @@
     </p>
 
     <p class="aviso aviso-informacao" id="aviso-geolocalizacao">
-      Sua localização é calculada pelo próprio navegador, fica só no seu aparelho e
-      nunca é enviada nem guardada por este site.
+      A localização é calculada pelo próprio navegador, fica apenas no seu aparelho
+      e nunca é enviada nem guardada por este site.
     </p>
 
     <!-- ------------------------------ Controles ------------------------------ -->
     <section class="controles" aria-label="Filtros do mapa">
       <div class="campo">
         <label for="campo-busca">Buscar</label>
-        <input type="search" id="campo-busca" placeholder="Nome, endereço ou bairro"
-               autocomplete="off">
+        <input type="search" id="campo-busca"
+               placeholder="Ex.: Alvarenga, UBS Leblon, Rudge Ramos"
+               autocomplete="off" enterkeyhint="search"
+               aria-describedby="dica-busca">
+        <p class="dica-busca" id="dica-busca">Ignora acentos e aceita mais de uma palavra.</p>
       </div>
 
       <div class="campo">
@@ -141,8 +144,8 @@
         <div id="mapa"></div>
         <noscript>
           <p class="aviso aviso-atencao">
-            O mapa interativo precisa de JavaScript. Ainda assim, todos os endereços
-            estão listados na aba “Lista” e na página “Sobre”.
+            O mapa e a lista precisam de JavaScript. Sem ele, consulte todos os
+            endereços no arquivo <a href="dados/pontos.csv">dados/pontos.csv</a>.
           </p>
         </noscript>
       </section>
@@ -163,7 +166,7 @@
         <li>Guarde medicamentos nas embalagens originais, longe do sol e das crianças.</li>
         <li>Separe exames de imagem (raio-X, mamografia, tomografia) em sacos próprios.</li>
         <li>Leve tudo a uma unidade indicada neste mapa durante o horário de atendimento.</li>
-        <li>Entregue para a equipe de saúde e confirme o descarte no local.</li>
+        <li>Entregue à equipe de saúde e confirme o descarte no local.</li>
       </ol>
       <p><a href="como-descartar.html">Veja o passo a passo completo e o que não pode ir para o lixo comum.</a></p>
     </section>
