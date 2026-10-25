@@ -1,0 +1,11 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Dependências (nenhuma obrigatória; só se instalar algo local)
+node_modules/
+
+# Editores
+.vscode/
+.idea/
+*.swp

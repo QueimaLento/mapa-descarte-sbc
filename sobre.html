@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre — Onde Descartar SBC</title>
+  <meta name="description" content="Sobre o projeto Onde Descartar SBC: objetivos, fontes dos dados, privacidade, acessibilidade e como colaborar.">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' file: data:; script-src 'self' file: 'unsafe-inline' https://unpkg.com; style-src 'self' file: 'unsafe-inline' https://unpkg.com; img-src 'self' file: data: https:; connect-src 'self' file:; font-src 'self' file:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <script>
+    // Aplica o tema antes do CSS: escolha da aba (sessionStorage) ou do sistema.
+    (function () {
+      var tema = null;
+      try { tema = sessionStorage.getItem("tema"); } catch (erro) { tema = null; }
+      if (tema !== "claro" && tema !== "escuro") {
+        tema = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "escuro" : "claro";
+      }
+      document.documentElement.setAttribute("data-tema", tema);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <div id="anuncios" class="sr-only" role="status" aria-live="polite"></div>
+
+  <header class="cabecalho">
+    <div class="cabecalho-interno">
+      <div class="marca">
+        <span class="marca-icone" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"></path>
+            <path d="M9.5 10.5h5M12 8v5"></path>
+          </svg>
+        </span>
+        <div>
+          <p class="marca-titulo">Onde Descartar SBC</p>
+          <p class="subtitulo">Medicamentos e exames de imagem em São Bernardo do Campo</p>
+        </div>
+      </div>
+
+      <nav class="navegacao" aria-label="Navegação principal">
+        <a href="index.html">Mapa</a>
+        <a href="como-descartar.html">Como descartar</a>
+        <a href="sobre.html" aria-current="page">Sobre</a>
+        <a href="cartaz.html">Cartaz</a>
+      </nav>
+
+      <button type="button" class="botao-tema" id="botao-tema" aria-label="Alternar tema de cores" aria-pressed="false">
+        <svg class="icone-tema-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+        <svg class="icone-tema-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo" class="conteudo pagina">
+    <h2>Sobre o projeto</h2>
+    <p class="lead">
+      O <strong>Onde Descartar SBC</strong> é um mapa público, gratuito e de código aberto
+      que reúne os pontos de descarte de medicamentos e exames de imagem em
+      São Bernardo do Campo (SP).
+    </p>
+
+    <section class="cartao" aria-labelledby="t-objetivo">
+      <h3 id="t-objetivo">Objetivo</h3>
+      <p>
+        Ajudar a população a encontrar rapidamente onde entregar medicamentos vencidos
+        ou não utilizados e filmes de exames de imagem, evitando que esses resíduos
+        terminem no esgoto, no rio ou no lixo comum.
+      </p>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-status">
+      <h3 id="t-status">Situação dos dados</h3>
+      <p>
+        Os pontos vêm da <strong>lista de UBS disponibilizada pelo site
+        saobernardodocampo.info (fonte terceira)</strong> e da regra de que todas as
+        unidades básicas de saúde recebem medicamentos, conforme notícias do
+        <strong>Repórter Diário (30/09/2024 e 11/07/2025)</strong>.
+      </p>
+      <ul class="lista-simples">
+        <li><strong>Nenhuma informação foi confirmada diretamente com as unidades</strong> — os dados vêm de fontes públicas e precisam ser conferidos por telefone.</li>
+        <li>Endereços incompletos, bairros, horários, telefones e coordenadas ainda não foram preenchidos; eles são editados manualmente em <code>dados/pontos.json</code>.</li>
+        <li>Quando uma informação for confirmada, o campo <code>status</code> vira <code>confirmado</code> e <code>confirmado_em</code> recebe a data.</li>
+        <li>Exames de imagem ainda não constam na base: se você souber de um ponto, envie uma sugestão.</li>
+      </ul>
+      <p class="nota">
+        Confirme sempre por telefone antes de sair de casa. Este site não substitui
+        a orientação da equipe de saúde.
+      </p>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-privacidade">
+      <h3 id="t-privacidade">Privacidade</h3>
+      <ul class="lista-simples">
+        <li>Sem cookies, sem rastreadores, sem analytics e sem cadastro.</li>
+        <li>Os filtros ficam apenas na memória do navegador durante a visita.</li>
+        <li>A escolha de tema (claro/escuro) fica guardada só na aba atual (<code>sessionStorage</code>), sem usar <code>localStorage</code> nem cookies, e some ao fechar a aba.</li>
+        <li>A localização é usada no seu aparelho para ordenar a lista e não é enviada a servidor algum.</li>
+        <li>Nenhum dado pessoal é coletado.</li>
+      </ul>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-acessibilidade">
+      <h3 id="t-acessibilidade">Acessibilidade</h3>
+      <ul class="lista-simples">
+        <li>Contraste de texto ajustado ao padrão WCAG AA nos dois temas.</li>
+        <li>Mapa e lista são alternativas um do outro; o site funciona lendo apenas a lista.</li>
+        <li>Alvos de toque de pelo menos 44×44 px e textos redimensionáveis.</li>
+        <li>Mudanças de resultado são anunciadas a leitores de tela.</li>
+        <li>Sem JavaScript, a mensagem de aviso explica como consultar os endereços.</li>
+      </ul>
+      <p class="nota">
+        Encontrou uma barreira de acesso? Abra uma issue no repositório ou envie
+        uma sugestão pelo formulário.
+      </p>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-colaborar">
+      <h3 id="t-colaborar">Como colaborar</h3>
+      <ol class="passos">
+        <li>Confirme um ponto por telefone e envie a data da confirmação.</li>
+        <li>Complete endereço, bairro, CEP, horário ou telefone que faltarem.</li>
+        <li>Indique novos pontos de exames de imagem.</li>
+        <li>Corrija um horário desatualizado.</li>
+      </ol>
+      <p id="colaborar-acoes">
+        Todas as correções são feitas nos arquivos <code>dados/pontos.json</code> e
+        <code>dados/pontos.csv</code> do repositório, com revisão antes da publicação.
+      </p>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-tecnico">
+      <h3 id="t-tecnico">Ficha técnica</h3>
+      <ul class="lista-simples">
+        <li>HTML, CSS e JavaScript puros — sem frameworks nem etapa de build.</li>
+        <li>Mapa Leaflet 1.9.4 (biblioteca livre) com mapas do OpenStreetMap.</li>
+        <li>Dados em JSON/CSV versionados no repositório.</li>
+        <li>Hospedagem gratuita no GitHub Pages.</li>
+        <li>Servidor, banco de dados e chave de API: nenhum.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-interno">
+      <div>
+        <p id="rodape-autor"></p>
+        <p id="rodape-instituicao"></p>
+        <p>Projeto acadêmico sem fins lucrativos. Confirme horários antes de sair de casa.</p>
+      </div>
+      <div id="rodape-links">
+        <p id="rodape-formulario"></p>
+        <p id="rodape-email"></p>
+        <p id="rodape-repositorio"></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/tema.js"></script>
+  <script>
+    (function () {
+      var autor = document.getElementById("rodape-autor");
+      if (configDefinida(CONFIG.AUTOR)) autor.textContent = "Responsável: " + CONFIG.AUTOR;
+      var inst = document.getElementById("rodape-instituicao");
+      if (configDefinida(CONFIG.INSTITUICAO)) inst.textContent = CONFIG.INSTITUICAO + " — " + CONFIG.CURSO;
+
+      var form = document.getElementById("rodape-formulario");
+      if (form && configDefinida(CONFIG.URL_FORM_SUGESTAO)) {
+        var f = document.createElement("a");
+        f.href = urlSegura(CONFIG.URL_FORM_SUGESTAO);
+        f.target = "_blank";
+        f.rel = "noopener";
+        f.textContent = "Enviar sugestão de novo ponto";
+        form.appendChild(f);
+      }
+      var email = document.getElementById("rodape-email");
+      if (configDefinida(CONFIG.EMAIL_CONTATO)) {
+        var a = document.createElement("a");
+        a.href = urlSegura(CONFIG.EMAIL_CONTATO);
+        a.textContent = CONFIG.EMAIL_CONTATO;
+        email.appendChild(a);
+      }
+      var repo = document.getElementById("rodape-repositorio");
+      if (configDefinida(CONFIG.URL_REPOSITORIO)) {
+        var r = document.createElement("a");
+        r.href = urlSegura(CONFIG.URL_REPOSITORIO);
+        r.target = "_blank";
+        r.rel = "noopener";
+        r.textContent = "Código-fonte no GitHub";
+        repo.appendChild(r);
+      }
+
+      // Ações de colaboração aparecem apenas quando o formulário está configurado.
+      var acoes = document.getElementById("colaborar-acoes");
+      if (acoes && configDefinida(CONFIG.URL_FORM_SUGESTAO)) {
+        var p = document.createElement("p");
+        var a2 = document.createElement("a");
+        a2.href = urlSegura(CONFIG.URL_FORM_SUGESTAO);
+        a2.target = "_blank";
+        a2.rel = "noopener";
+        a2.className = "botao";
+        a2.textContent = "Enviar uma sugestão ou correção";
+        p.appendChild(a2);
+        acoes.appendChild(p);
+      }
+    })();
+  </script>
+</body>
+</html>

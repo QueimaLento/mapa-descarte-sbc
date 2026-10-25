@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cartaz — Onde Descartar SBC</title>
+  <meta name="description" content="Cartaz imprimível em A4 com o passo a passo do descarte correto e o QR code do mapa Onde Descartar SBC.">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' file: data:; script-src 'self' file: 'unsafe-inline' https://unpkg.com; style-src 'self' file: 'unsafe-inline' https://unpkg.com; img-src 'self' file: data: https:; connect-src 'self' file:; font-src 'self' file:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <script>
+    // Aplica o tema antes do CSS: escolha da aba (sessionStorage) ou do sistema.
+    (function () {
+      var tema = null;
+      try { tema = sessionStorage.getItem("tema"); } catch (erro) { tema = null; }
+      if (tema !== "claro" && tema !== "escuro") {
+        tema = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "escuro" : "claro";
+      }
+      document.documentElement.setAttribute("data-tema", tema);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="icon" href="data:,">
+</head>
+<body class="pagina-cartaz">
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <div id="anuncios" class="sr-only" role="status" aria-live="polite"></div>
+
+  <header class="cabecalho">
+    <div class="cabecalho-interno">
+      <div class="marca">
+        <span class="marca-icone" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"></path>
+            <path d="M9.5 10.5h5M12 8v5"></path>
+          </svg>
+        </span>
+        <div>
+          <p class="marca-titulo">Onde Descartar SBC</p>
+          <p class="subtitulo">Medicamentos e exames de imagem em São Bernardo do Campo</p>
+        </div>
+      </div>
+
+      <nav class="navegacao" aria-label="Navegação principal">
+        <a href="index.html">Mapa</a>
+        <a href="como-descartar.html">Como descartar</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="cartaz.html" aria-current="page">Cartaz</a>
+      </nav>
+
+      <button type="button" class="botao-tema" id="botao-tema" aria-label="Alternar tema de cores" aria-pressed="false">
+        <svg class="icone-tema-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+        <svg class="icone-tema-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo" class="conteudo">
+    <section class="barra-impressao" aria-label="Ações do cartaz">
+      <h2>Cartaz para imprimir</h2>
+      <p class="lead">
+        Abaixo está o cartaz em tamanho A4. Imprima em papel comum (colorido ou
+        preto e branco) e pendure na unidade, no posto, na escola ou no comércio.
+      </p>
+      <button type="button" class="botao" id="botao-imprimir">Imprimir cartaz (A4)</button>
+    </section>
+
+    <!-- ------------------------------- CARTAZ ------------------------------ -->
+    <article class="cartaz" id="cartaz" aria-label="Cartaz: descarte certo de medicamentos e exames">
+      <header class="cartaz-topo">
+        <p class="cartaz-superior">São Bernardo do Campo · SP</p>
+        <h1 class="cartaz-titulo">Descarte certo,<br>cidade limpa</h1>
+        <p class="cartaz-subtitulo">Medicamentos e exames de imagem não vão para o lixo comum</p>
+      </header>
+
+      <section class="cartaz-corpo">
+        <ol class="cartaz-passos">
+          <li>
+            <span class="num" aria-hidden="true">1</span>
+            <span><strong>Guarde</strong> o medicamento na caixa ou no frasco original, com o rótulo.</span>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">2</span>
+            <span><strong>Separe</strong> os filmes de raio-X, mamografia e tomografia em um saco fechado.</span>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">3</span>
+            <span><strong>Leve</strong> a unidade de saúde indicada no mapa, no horário de atendimento.</span>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">4</span>
+            <span><strong>Entregue</strong> à equipe de saúde. Ela fará o descarte correto.</span>
+          </li>
+        </ol>
+
+        <div class="cartaz-nunca">
+          <h2>Nunca faça</h2>
+          <ul>
+            <li>Jogar remédio na privada, na pia ou no rio</li>
+            <li>Descartar agulhas e seringas no lixo comum</li>
+            <li>Queimar embalagens ou comprimidos em casa</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="cartaz-rodape">
+        <div class="cartaz-qr">
+          <img src="img/qr-site.svg" alt="QR code do site Onde Descartar SBC" width="140" height="140"
+               onerror="this.closest('.cartaz-qr').classList.add('qr-ausente')">
+          <p class="qr-fallback">
+            Aponte a câmera do celular para o QR code ou acesse:<br>
+            <strong id="cartaz-url">seu-usuario.github.io/mapa-descarte-sbc</strong>
+          </p>
+        </div>
+        <div class="cartaz-info">
+          <p class="cartaz-chamada">Encontre o ponto mais perto de você</p>
+          <p>Mapa gratuito, sem cadastro e sem publicidade.</p>
+          <p class="cartaz-aviso">
+            Horários podem mudar: confirme por telefone antes de sair.
+          </p>
+        </div>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-interno">
+      <div>
+        <p id="rodape-autor"></p>
+        <p id="rodape-instituicao"></p>
+        <p>Projeto acadêmico sem fins lucrativos. Confirme horários antes de sair de casa.</p>
+      </div>
+      <div id="rodape-links">
+        <p id="rodape-email"></p>
+        <p id="rodape-repositorio"></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/tema.js"></script>
+  <script>
+    (function () {
+      var autor = document.getElementById("rodape-autor");
+      if (configDefinida(CONFIG.AUTOR)) autor.textContent = "Responsável: " + CONFIG.AUTOR;
+      var inst = document.getElementById("rodape-instituicao");
+      if (configDefinida(CONFIG.INSTITUICAO)) inst.textContent = CONFIG.INSTITUICAO + " — " + CONFIG.CURSO;
+      var email = document.getElementById("rodape-email");
+      if (configDefinida(CONFIG.EMAIL_CONTATO)) {
+        var a = document.createElement("a");
+        a.href = urlSegura(CONFIG.EMAIL_CONTATO);
+        a.textContent = CONFIG.EMAIL_CONTATO;
+        email.appendChild(a);
+      }
+      var repo = document.getElementById("rodape-repositorio");
+      if (configDefinida(CONFIG.URL_REPOSITORIO)) {
+        var r = document.createElement("a");
+        r.href = urlSegura(CONFIG.URL_REPOSITORIO);
+        r.target = "_blank";
+        r.rel = "noopener";
+        r.textContent = "Código-fonte no GitHub";
+        repo.appendChild(r);
+      }
+
+      // URL exibida no cartaz: a publicada, quando configurada; senão a do repositório.
+      var url = document.getElementById("cartaz-url");
+      if (configDefinida(CONFIG.URL_SITE)) {
+        url.textContent = CONFIG.URL_SITE;
+      } else if (configDefinida(CONFIG.URL_REPOSITORIO)) {
+        url.textContent = CONFIG.URL_REPOSITORIO;
+      }
+
+      document.getElementById("botao-imprimir").addEventListener("click", function () {
+        window.print();
+      });
+    })();
+  </script>
+</body>
+</html>
