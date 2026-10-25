@@ -17,9 +17,9 @@
   --cor-primaria: #1d4ed8;        /* azul: texto branco sobre ele ≈ 6,8:1 */
   --cor-primaria-forte: #1e40af;
   --cor-primaria-clara: #dbeafe;
-  --cor-fundo: #ffffff;
-  --cor-superficie: #f2f6fd;
-  --cor-superficie-2: #e3ecfb;
+  --cor-fundo: #f4f6fb;           /* fundo da página: tom suave, sem branco puro */
+  --cor-superficie: #ffffff;      /* cartões, cabeçalho, campos: branco puro */
+  --cor-superficie-2: #e8edf8;    /* hover e destaques */
   --cor-texto: #0b1220;           /* ≈ 18:1 sobre branco */
   --cor-texto-suave: #3b4a63;     /* ≈ 8,9:1 sobre branco */
   --cor-borda: #c6d4ee;
@@ -199,7 +199,7 @@ p, li {
   padding: 0;
   border-radius: 50%;
   border: 1px solid var(--cor-borda);
-  background: var(--cor-fundo);
+  background: var(--cor-superficie);
   color: var(--cor-texto);
   cursor: pointer;
   flex: 0 0 auto;
@@ -302,7 +302,7 @@ select {
   font-size: 1rem;
   font-family: inherit;
   color: var(--cor-texto);
-  background: var(--cor-fundo);
+  background: var(--cor-superficie);
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio);
   width: 100%;
@@ -331,7 +331,7 @@ select {
 .botao:hover { background: var(--cor-primaria-forte); }
 
 .botao-secundario {
-  background: var(--cor-fundo);
+  background: var(--cor-superficie);
   color: var(--cor-primaria-forte);
 }
 
@@ -387,7 +387,7 @@ select {
   min-height: var(--toque);
   border-radius: var(--raio);
   border: 1px solid var(--cor-borda);
-  background: var(--cor-fundo);
+  background: var(--cor-superficie);
   color: var(--cor-texto);
   font-size: 1rem;
   font-family: inherit;
@@ -403,7 +403,95 @@ select {
 
 @media (max-width: 860px) {
   .abas { display: flex; }
+
+  /* ---------------- Cabeçalho compacto no celular -------------------- */
+  /* Linha 1: marca + botão de tema. Linha 2: menu que desliza na horizontal. */
+  body { font-size: 16px; }
+
+  .cabecalho { padding: 10px var(--espaco); }
+
+  .cabecalho-interno { gap: 8px 10px; }
+
+  .marca {
+    flex: 1 1 0;
+    min-width: 0;
+    gap: 10px;
+  }
+
+  .marca h1,
+  .marca .marca-titulo { font-size: 1.1rem; }
+
+  .marca .subtitulo {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin-top: 1px;
+  }
+
+  .marca-icone { width: 40px; height: 40px; }
+
+  .botao-tema { order: 2; }
+
+  .navegacao {
+    order: 3;
+    flex: 1 0 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    gap: 6px;
+    margin: 0 calc(var(--espaco) * -1);
+    padding: 0 var(--espaco) 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .navegacao::-webkit-scrollbar { display: none; }
+
+  .navegacao a {
+    flex: 0 0 auto;
+    padding: 8px 13px;
+    white-space: nowrap;
+  }
+
+  /* ------------------------- Espaçamentos ---------------------------- */
+  .conteudo { padding: 12px; }
+
+  .cartao,
+  .controles { padding: 12px; }
+
+  .lead { font-size: 1rem; }
+
+  /* ------------------------- Filtros e botões ------------------------ */
+  .controles { gap: 10px; }
+
+  .campo {
+    flex: 1 1 240px;
+    min-width: 0;
+  }
+
+  .grupo-botoes {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .grupo-botoes > * {
+    flex: 1 1 140px;
+    min-width: 140px;
+  }
+
+  .grupo-botoes .botao {
+    width: 100%;
+    padding: 10px 10px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  /* ------------------------- Lista e passos -------------------------- */
+  .item-ponto { padding: 12px; }
+
+  .passos li { padding-left: 50px; }
+
+  .rodape { padding: 16px var(--espaco); }
 }
+
 
 /* ------------------------- Mapa e lista -------------------------------- */
 .painel-mapa {
@@ -430,7 +518,7 @@ select {
   overflow-y: auto;
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio);
-  background: var(--cor-fundo);
+  background: var(--cor-superficie);
 }
 
 .item-ponto {
@@ -510,7 +598,7 @@ select {
 /* Popup do Leaflet usando as cores do tema */
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-  background: var(--cor-fundo);
+  background: var(--cor-superficie);
   color: var(--cor-texto);
 }
 
@@ -641,7 +729,7 @@ select {
   border: 3px solid var(--cor-primaria);
   border-radius: 16px;
   padding: 28px;
-  background: var(--cor-fundo);
+  background: var(--cor-superficie);
 }
 
 .cartaz h1 {
@@ -901,4 +989,12 @@ code {
 @media (max-width: 700px) {
   .cartaz-corpo { grid-template-columns: 1fr; }
   .cartaz-titulo { font-size: 2rem; }
+  .cartaz { padding: 16px; }
+  .cartaz-rodape {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+  .cartaz-info { flex: 1 1 auto; }
 }
